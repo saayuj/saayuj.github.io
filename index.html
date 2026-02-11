@@ -1,54 +1,365 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saayuj Deshpande</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f172a;
-      color: #e5e7eb;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      padding: 24px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #cbd5f5;
-    }
-    a {
-      color: #60a5fa;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 500;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Saayuj Deshpande</h1>
-    <p>
-      Robotics Engineer · MS Robotics @ UPenn<br />
-      Building intelligent systems for manufacturing and automation
-    </p>
-    <p>
-      <a href="https://github.com/saayujdeshpande" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
-      <a href="mailto:your@email.com">Email</a>
-    </p>
-  </div>
-</body>
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Saayuj Deshpande</title>
+    <meta name="description" content="Robotics Engineer · MS Robotics @ UPenn · Founder building manufacturing automation systems." />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optional modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Go to home">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">Saayuj Deshpande</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#connect">Connect</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle theme">
+            <span class="icon" aria-hidden="true">◐</span>
+            <span class="hide-sm">Theme</span>
+          </button>
+          <a class="btn btn-primary hide-sm" href="#connect">Let’s talk</a>
+
+          <button id="menuToggle" class="btn btn-ghost menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileNav" class="mobile-nav" hidden>
+        <div class="container mobile-nav-inner">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#connect">Connect</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home" class="section hero">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <p class="pill">
+              <span class="pill-dot" aria-hidden="true"></span>
+              Robotics Engineer · MS Robotics @ UPenn
+            </p>
+
+            <h1>
+              I build <span class="accent">robotics systems</span> for real-world manufacturing automation.
+            </h1>
+
+            <p class="lead">
+              Currently working on AI-enabled integration and deployment of robots in factory & warehouse environments
+              (multi-vendor fleets, navigation, and execution monitoring).
+            </p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#projects">View projects</a>
+              <a class="btn btn-secondary" href="#work">See what I’m building</a>
+            </div>
+
+            <div class="quick-links">
+              <a href="https://github.com/saayujdeshpande" target="_blank" rel="noreferrer">GitHub</a>
+              <span class="sep" aria-hidden="true">•</span>
+              <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
+              <span class="sep" aria-hidden="true">•</span>
+              <a href="mailto:YOUR_EMAIL">Email</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="card glass">
+              <div class="card-header">
+                <h2>Now</h2>
+                <p class="muted">What I’m focused on lately</p>
+              </div>
+
+              <ul class="bullet">
+                <li><strong>Novara Robotics:</strong> building an AI-enabled robotics integration layer for factories (ERP/MES/WMS → robots).</li>
+                <li><strong>ROS 2 + Nav2 + Open-RMF:</strong> orchestration, task execution, and fleet coordination in containerized workflows.</li>
+                <li><strong>Robotics research:</strong> planning/control work including safe contact + trajectory optimization.</li>
+              </ul>
+
+              <div class="card-footer">
+                <a class="btn btn-ghost" href="#connect">Get in touch →</a>
+              </div>
+            </div>
+
+            <div class="metrics">
+              <div class="metric card">
+                <div class="metric-k">MS Robotics</div>
+                <div class="metric-v">UPenn</div>
+              </div>
+              <div class="metric card">
+                <div class="metric-k">B.Tech (Hons)</div>
+                <div class="metric-v">IIT Bombay</div>
+              </div>
+              <div class="metric card">
+                <div class="metric-k">Focus</div>
+                <div class="metric-v">Manufacturing Robotics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>About</h2>
+            <p class="muted">A quick snapshot. We’ll refine this wording later.</p>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Who I am</h3>
+              <p>
+                I’m a robotics engineer currently pursuing an MS in Robotics at the University of Pennsylvania.
+                I studied Mechanical Engineering (Honors) at IIT Bombay with a minor in Systems & Control.
+              </p>
+              <p>
+                I like building systems that bridge theory and deployment: planning + control + robust software that
+                actually runs on real robots (or realistic simulation stacks).
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>What I care about</h3>
+              <ul class="bullet">
+                <li><strong>Factory automation:</strong> fleets, workflows, orchestration, and operational reliability.</li>
+                <li><strong>Robust control:</strong> safe interaction, contact, and control gap mitigation.</li>
+                <li><strong>End-to-end engineering:</strong> simulation → integration → deployment, with clean interfaces.</li>
+                <li><strong>Mentoring & teaching:</strong> I’ve mentored students and served as a TA for multiple courses.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skills-strip card">
+            <div>
+              <div class="chip-title">Core stack</div>
+              <div class="chips">
+                <span class="chip">ROS 2 (Humble/Jazzy)</span>
+                <span class="chip">Nav2</span>
+                <span class="chip">Gazebo (Ignition/Harmonic)</span>
+                <span class="chip">Open-RMF</span>
+                <span class="chip">MoveIt 2</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Python / C++</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK -->
+      <section id="work" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Work</h2>
+            <p class="muted">Selected work across startup, research, and teaching.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="item card">
+              <div class="item-top">
+                <h3>Founder — Novara Robotics</h3>
+                <span class="tag">Manufacturing automation</span>
+              </div>
+              <p class="muted">
+                Building an AI-enabled integration and orchestration software layer connecting factory systems (ERP/MES/WMS)
+                to multi-vendor mobile robots and robot arms. Near-term: system integration with defensible software IP.
+              </p>
+              <ul class="bullet compact">
+                <li>Agent + event-driven execution layer for task monitoring and dynamic re-planning.</li>
+                <li>Containerized ROS 2 stacks for reproducible deployment and simulation.</li>
+                <li>Exploring fleet orchestration workflows (Open-RMF) + enterprise integrations.</li>
+              </ul>
+            </article>
+
+            <article class="item card">
+              <div class="item-top">
+                <h3>Robotics Research & Projects — UPenn</h3>
+                <span class="tag">Planning & control</span>
+              </div>
+              <p class="muted">
+                Work spanning safe contact frameworks for 7-DoF manipulation, trajectory optimization, system identification,
+                and simulation-to-real considerations.
+              </p>
+              <ul class="bullet compact">
+                <li>Safe contact framework using contact-implicit trajectory optimization + admittance control.</li>
+                <li>System ID for robot control parameters (Sim2Real control gap mitigation).</li>
+              </ul>
+            </article>
+
+            <article class="item card">
+              <div class="item-top">
+                <h3>Teaching Assistant & Student Mentor — IIT Bombay / UPenn</h3>
+                <span class="tag">Mentoring</span>
+              </div>
+              <p class="muted">
+                TA for multiple courses and mentor to students across years, with a focus on technical clarity and communication.
+              </p>
+              <ul class="bullet compact">
+                <li>Mentored 26 students across two years (freshmen–juniors).</li>
+                <li>Supported communication skills and structured learning for engineering courses.</li>
+              </ul>
+            </article>
+
+            <article class="item card">
+              <div class="item-top">
+                <h3>Automotive Controls / ECU Testing</h3>
+                <span class="tag">Industry</span>
+              </div>
+              <p class="muted">
+                Tested ECUs and automated diagnostic services (I/O control) using Vector CANoe/CAPL; built GUIs for automation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Projects</h2>
+            <p class="muted">A few highlights. We can tighten this and add links/screenshots later.</p>
+          </div>
+
+          <div class="grid">
+            <article class="card project">
+              <div class="project-top">
+                <h3>Agent + Open-RMF Integration (WIP)</h3>
+                <span class="tag">Systems</span>
+              </div>
+              <p class="muted">
+                Event-driven agent that monitors task execution and emits intents/next actions; designed to sit alongside fleet orchestration.
+              </p>
+              <div class="project-links">
+                <span class="tiny">Link:</span>
+                <span class="tiny muted">add GitHub repo later</span>
+              </div>
+            </article>
+
+            <article class="card project">
+              <div class="project-top">
+                <h3>ROS 2 Nav2 AMR Workspace (Docker)</h3>
+                <span class="tag">Robotics</span>
+              </div>
+              <p class="muted">
+                Reproducible ROS 2 Jazzy + Nav2 dev environment using Docker Compose for navigation & simulation workflows.
+              </p>
+            </article>
+
+            <article class="card project">
+              <div class="project-top">
+                <h3>Safe Contact Framework (7-DoF Arm)</h3>
+                <span class="tag">Control</span>
+              </div>
+              <p class="muted">
+                Combined contact-implicit trajectory optimization with admittance control to achieve safer contact behaviors.
+              </p>
+            </article>
+
+            <article class="card project">
+              <div class="project-top">
+                <h3>Drone Delivery Optimization (Paper)</h3>
+                <span class="tag">Optimization</span>
+              </div>
+              <p class="muted">
+                Research on drone delivery routing/charging optimization. (We can link your arXiv here.)
+              </p>
+              <div class="project-links">
+                <a class="tiny" href="https://arxiv.org/abs/2311.17375" target="_blank" rel="noreferrer">arXiv</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="note card">
+            <p class="muted">
+              Want more detail? I’m happy to share demos, writeups, and code links—this section will expand as I polish.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONNECT -->
+      <section id="connect" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Connect</h2>
+            <p class="muted">Best ways to reach me. Calendly is optional (recommended for founder-style sites).</p>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Message me</h3>
+              <p class="muted">Email is fastest. LinkedIn is great for intros.</p>
+
+              <div class="contact-list">
+                <a class="btn btn-secondary" href="mailto:YOUR_EMAIL">Email</a>
+                <a class="btn btn-secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="btn btn-secondary" href="https://github.com/saayujdeshpande" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+
+              <div class="divider"></div>
+
+              <p class="muted tiny">
+                Resume:
+                <a href="assets/resume.pdf" target="_blank" rel="noreferrer">Download PDF</a>
+                <span class="muted">(add later)</span>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Schedule a chat (optional)</h3>
+              <p class="muted">
+                If you’re reaching out about manufacturing robotics, collaboration, advising, or product conversations, a quick call can help.
+              </p>
+              <p class="muted tiny">
+                Add your Calendly link here when ready:
+              </p>
+              <a class="btn btn-primary" href="https://calendly.com/YOUR_CALENDLY" target="_blank" rel="noreferrer">
+                Schedule via Calendly
+              </a>
+              <p class="muted tiny" style="margin-top:10px;">
+                Tip: keep this button, but don’t make it the only contact method.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <span class="muted tiny">© <span id="year"></span> Saayuj Deshpande</span>
+          <span class="muted tiny">Built on GitHub Pages</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
