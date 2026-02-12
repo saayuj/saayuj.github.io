@@ -60,5 +60,142 @@
         menuBtn.setAttribute("aria-expanded", "false");
       });
     }
+  
+    // ---------- Scroll Reveal Animation ----------
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+  
+    // Observe all sections and cards for scroll animations
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section, index) => {
+      // Add delay based on order
+      section.style.transitionDelay = `${index * 0.1}s`;
+      section.classList.add('scroll-reveal');
+      observer.observe(section);
+    });
+  
+    // Observe cards within sections
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+      card.style.transitionDelay = `${(index % 4) * 0.1}s`;
+      card.classList.add('scroll-reveal');
+      observer.observe(card);
+    });
+  
+  // ---------- Initial Page Load Animation ----------
+  window.addEventListener('load', () => {
+    // Mark body as loaded
+    document.body.classList.add('loaded');
+    
+      // Animate header
+      const header = document.querySelector('.site-header');
+      if (header) {
+        header.style.opacity = '0';
+        header.style.transform = 'translateY(-20px)';
+        header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        setTimeout(() => {
+          header.style.opacity = '1';
+          header.style.transform = 'translateY(0)';
+        }, 100);
+      }
+  
+      // Animate hero section elements
+      const heroElements = document.querySelectorAll('.hero-left > *');
+      heroElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200 + (index * 100));
+      });
+  
+      // Animate hero right side
+      const heroRight = document.querySelector('.hero-right');
+      if (heroRight) {
+        heroRight.style.opacity = '0';
+        heroRight.style.transform = 'translateX(30px)';
+        heroRight.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        setTimeout(() => {
+          heroRight.style.opacity = '1';
+          heroRight.style.transform = 'translateX(0)';
+        }, 400);
+      }
+    });
+  
+    // ---------- Smooth Scroll with offset ----------
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('.site-header').offsetHeight;
+          const targetPosition = target.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  
+  // ---------- Header Scroll Effect ----------
+  const header = document.querySelector('.site-header');
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+  });
+  
+  // ---------- Parallax Effect on Scroll ----------
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        
+        // Parallax effect on hero section
+        const hero = document.querySelector('.hero');
+        if (hero && scrolled < window.innerHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+          hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+        }
+        
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  
+  // ---------- Add cursor pointer to interactive elements ----------
+  const interactiveElements = document.querySelectorAll('.card, .chip, .tag');
+  interactiveElements.forEach(el => {
+    if (!el.querySelector('a') && !el.querySelector('button')) {
+      el.style.cursor = 'default';
+    }
+  });
   })();
   
