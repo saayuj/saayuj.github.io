@@ -9,7 +9,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Optional modern font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css" />
@@ -20,12 +19,12 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#home" aria-label="Go to home">
+        <div class="brand">
           <span class="brand-dot" aria-hidden="true"></span>
-          <span class="brand-text">Saayuj Deshpande</span>
-        </a>
+        </div>
 
         <nav class="nav" aria-label="Primary">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#projects">Projects</a>
@@ -37,7 +36,6 @@
             <span class="icon" aria-hidden="true">◐</span>
             <span class="hide-sm">Theme</span>
           </button>
-          <a class="btn btn-primary hide-sm" href="#connect">Let’s talk</a>
 
           <button id="menuToggle" class="btn btn-ghost menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
             <span aria-hidden="true">☰</span>
@@ -47,6 +45,7 @@
 
       <div id="mobileNav" class="mobile-nav" hidden>
         <div class="container mobile-nav-inner">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#projects">Projects</a>
@@ -57,69 +56,37 @@
 
     <main>
       <!-- HOME -->
-      <section id="home" class="section hero">
-        <div class="container hero-grid">
-          <div class="hero-left">
-            <p class="pill">
-              <span class="pill-dot" aria-hidden="true"></span>
-              Robotics Engineer · MS Robotics @ UPenn
-            </p>
-
-            <h1>
-              I build <span class="accent">robotics systems</span> for real-world manufacturing automation.
-            </h1>
-
-            <p class="lead">
-              Currently working on AI-enabled integration and deployment of robots in factory & warehouse environments
-              (multi-vendor fleets, navigation, and execution monitoring).
-            </p>
-
-            <div class="cta-row">
-              <a class="btn btn-primary" href="#projects">View projects</a>
-              <a class="btn btn-secondary" href="#work">See what I’m building</a>
-            </div>
-
-            <div class="quick-links">
-              <a href="https://github.com/saayuj" target="_blank" rel="noreferrer">GitHub</a>
-              <span class="sep" aria-hidden="true">•</span>
-              <a href="https://www.linkedin.com/in/saayuj-deshpande" target="_blank" rel="noreferrer">LinkedIn</a>
-              <span class="sep" aria-hidden="true">•</span>
-              <a href="mailto:saayuj@outlook.com">Email</a>
+      <section id="home" class="section hero-minimal">
+        <div class="container hero-content">
+          <div class="hero-photo">
+            <div class="photo-placeholder">
+              <span class="photo-initial">SD</span>
             </div>
           </div>
 
-          <div class="hero-right">
-            <div class="card glass">
-              <div class="card-header">
-                <h2>Now</h2>
-                <p class="muted">What I’m focused on lately</p>
-              </div>
+          <h1 class="hero-name">Saayuj Deshpande</h1>
+          
+          <p class="hero-title">Robotics Engineer · Founder @ Novara Robotics</p>
+          
+          <p class="hero-tagline">
+            Building AI-enabled robotics systems for manufacturing automation
+          </p>
 
-              <ul class="bullet">
-                <li><strong>Novara Robotics:</strong> building an AI-enabled robotics integration layer for factories (ERP/MES/WMS → robots).</li>
-                <li><strong>ROS 2 + Nav2 + Open-RMF:</strong> orchestration, task execution, and fleet coordination in containerized workflows.</li>
-                <li><strong>Robotics research:</strong> planning/control work including safe contact + trajectory optimization.</li>
-              </ul>
+          <div class="hero-links">
+            <a href="https://github.com/saayuj" target="_blank" rel="noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/saayuj-deshpande" target="_blank" rel="noreferrer" class="social-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="mailto:saayuj@outlook.com" class="social-link" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
 
-              <div class="card-footer">
-                <a class="btn btn-ghost" href="#connect">Get in touch →</a>
-              </div>
-            </div>
-
-            <div class="metrics">
-              <div class="metric card">
-                <div class="metric-k">MS Robotics</div>
-                <div class="metric-v">UPenn</div>
-              </div>
-              <div class="metric card">
-                <div class="metric-k">B.Tech (Hons)</div>
-                <div class="metric-v">IIT Bombay</div>
-              </div>
-              <div class="metric card">
-                <div class="metric-k">Focus</div>
-                <div class="metric-v">Manufacturing Robotics</div>
-              </div>
-            </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           </div>
         </div>
       </section>
@@ -129,45 +96,70 @@
         <div class="container">
           <div class="section-head">
             <h2>About</h2>
-            <p class="muted">A quick snapshot. We’ll refine this wording later.</p>
+            <p class="muted">Background, interests, and what drives me</p>
           </div>
 
-          <div class="two-col">
-            <div class="card">
+          <div class="about-content">
+            <div class="about-text">
               <h3>Who I am</h3>
               <p>
-                I’m a robotics engineer currently pursuing an MS in Robotics at the University of Pennsylvania.
-                I studied Mechanical Engineering (Honors) at IIT Bombay with a minor in Systems & Control.
+                I'm a robotics engineer with an MS in Robotics from the University of Pennsylvania and a B.Tech (Honors) 
+                in Mechanical Engineering from IIT Bombay, with a minor in Systems & Control.
               </p>
               <p>
-                I like building systems that bridge theory and deployment: planning + control + robust software that
-                actually runs on real robots (or realistic simulation stacks).
+                Currently, I'm the founder of <strong>Novara Robotics</strong>, where I'm building an AI-enabled integration 
+                layer that connects factory systems (ERP/MES/WMS) to multi-vendor robot fleets. My work focuses on making 
+                robotics deployment practical and reliable for real-world manufacturing environments.
               </p>
             </div>
 
-            <div class="card">
+            <div class="about-now card">
+              <h3>What I'm focused on</h3>
+              <ul class="bullet">
+                <li><strong>Novara Robotics:</strong> AI-enabled robotics integration layer for factories</li>
+                <li><strong>ROS 2 + Nav2 + Open-RMF:</strong> Fleet orchestration and task execution in containerized workflows</li>
+                <li><strong>Research:</strong> Safe contact frameworks and trajectory optimization for manipulation</li>
+              </ul>
+            </div>
+
+            <div class="about-interests">
               <h3>What I care about</h3>
               <ul class="bullet">
-                <li><strong>Factory automation:</strong> fleets, workflows, orchestration, and operational reliability.</li>
-                <li><strong>Robust control:</strong> safe interaction, contact, and control gap mitigation.</li>
-                <li><strong>End-to-end engineering:</strong> simulation → integration → deployment, with clean interfaces.</li>
-                <li><strong>Mentoring & teaching:</strong> I’ve mentored students and served as a TA for multiple courses.</li>
+                <li><strong>Factory automation:</strong> Building systems for fleet coordination, workflow orchestration, and operational reliability</li>
+                <li><strong>Robust control:</strong> Developing safe interaction and contact control solutions</li>
+                <li><strong>End-to-end engineering:</strong> Bridging simulation, integration, and deployment with clean interfaces</li>
+                <li><strong>Mentoring & teaching:</strong> Helping students develop technical skills and structured thinking</li>
               </ul>
+            </div>
+
+            <div class="about-education">
+              <h3>Education</h3>
+              <div class="education-grid">
+                <div class="edu-item">
+                  <div class="edu-degree">MS in Robotics</div>
+                  <div class="edu-school">University of Pennsylvania</div>
+                </div>
+                <div class="edu-item">
+                  <div class="edu-degree">B.Tech (Hons) Mechanical Engineering</div>
+                  <div class="edu-school">IIT Bombay · Minor in Systems & Control</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="skills-strip card">
-            <div>
-              <div class="chip-title">Core stack</div>
-              <div class="chips">
-                <span class="chip">ROS 2 (Humble/Jazzy)</span>
-                <span class="chip">Nav2</span>
-                <span class="chip">Gazebo (Ignition/Harmonic)</span>
-                <span class="chip">Open-RMF</span>
-                <span class="chip">MoveIt 2</span>
-                <span class="chip">Docker</span>
-                <span class="chip">Python / C++</span>
-              </div>
+          <div class="skills-section">
+            <h3>Technical Stack</h3>
+            <div class="chips">
+              <span class="chip">ROS 2 (Humble/Jazzy)</span>
+              <span class="chip">Nav2</span>
+              <span class="chip">Gazebo (Ignition/Harmonic)</span>
+              <span class="chip">Open-RMF</span>
+              <span class="chip">MoveIt 2</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Python</span>
+              <span class="chip">C++</span>
+              <span class="chip">Trajectory Optimization</span>
+              <span class="chip">Motion Planning</span>
             </div>
           </div>
         </div>
@@ -178,62 +170,66 @@
         <div class="container">
           <div class="section-head">
             <h2>Work</h2>
-            <p class="muted">Selected work across startup, research, and teaching.</p>
+            <p class="muted">Experience across startups, research, and teaching</p>
           </div>
 
           <div class="timeline">
             <article class="item card">
               <div class="item-top">
                 <h3>Founder — Novara Robotics</h3>
-                <span class="tag">Manufacturing automation</span>
+                <span class="tag">Current</span>
               </div>
               <p class="muted">
-                Building an AI-enabled integration and orchestration software layer connecting factory systems (ERP/MES/WMS)
-                to multi-vendor mobile robots and robot arms. Near-term: system integration with defensible software IP.
+                Building an AI-enabled integration and orchestration platform connecting factory systems (ERP/MES/WMS) 
+                to multi-vendor mobile robots and robot arms. Focus on defensible software IP and practical deployment.
               </p>
               <ul class="bullet compact">
-                <li>Agent + event-driven execution layer for task monitoring and dynamic re-planning.</li>
-                <li>Containerized ROS 2 stacks for reproducible deployment and simulation.</li>
-                <li>Exploring fleet orchestration workflows (Open-RMF) + enterprise integrations.</li>
+                <li>Agent-driven execution layer for task monitoring and dynamic re-planning</li>
+                <li>Containerized ROS 2 stacks for reproducible simulation and deployment</li>
+                <li>Fleet orchestration workflows with Open-RMF and enterprise system integrations</li>
               </ul>
             </article>
 
             <article class="item card">
               <div class="item-top">
-                <h3>Robotics Research & Projects — UPenn</h3>
-                <span class="tag">Planning & control</span>
+                <h3>Robotics Research — UPenn</h3>
+                <span class="tag">Research</span>
               </div>
               <p class="muted">
-                Work spanning safe contact frameworks for 7-DoF manipulation, trajectory optimization, system identification,
-                and simulation-to-real considerations.
+                Research spanning safe contact frameworks for manipulation, trajectory optimization, and system identification 
+                for sim-to-real transfer.
               </p>
               <ul class="bullet compact">
-                <li>Safe contact framework using contact-implicit trajectory optimization + admittance control.</li>
-                <li>System ID for robot control parameters (Sim2Real control gap mitigation).</li>
+                <li>Safe contact framework using contact-implicit trajectory optimization + admittance control</li>
+                <li>System identification for robot control parameters to mitigate sim-to-real gaps</li>
+                <li>7-DoF manipulation planning and execution on physical robots</li>
               </ul>
             </article>
 
             <article class="item card">
               <div class="item-top">
-                <h3>Teaching Assistant & Student Mentor — IIT Bombay / UPenn</h3>
-                <span class="tag">Mentoring</span>
+                <h3>Teaching Assistant & Mentor</h3>
+                <span class="tag">Education</span>
               </div>
               <p class="muted">
-                TA for multiple courses and mentor to students across years, with a focus on technical clarity and communication.
+                Teaching assistant for multiple courses at IIT Bombay and UPenn. Mentored 26 students across 
+                two years, focusing on technical clarity and structured problem-solving.
               </p>
               <ul class="bullet compact">
-                <li>Mentored 26 students across two years (freshmen–juniors).</li>
-                <li>Supported communication skills and structured learning for engineering courses.</li>
+                <li>TA for robotics and control systems courses</li>
+                <li>Mentored freshmen through junior students in engineering fundamentals</li>
+                <li>Developed communication skills workshops and technical guidance sessions</li>
               </ul>
             </article>
 
             <article class="item card">
               <div class="item-top">
-                <h3>Automotive Controls / ECU Testing</h3>
+                <h3>Automotive Controls Engineering</h3>
                 <span class="tag">Industry</span>
               </div>
               <p class="muted">
-                Tested ECUs and automated diagnostic services (I/O control) using Vector CANoe/CAPL; built GUIs for automation.
+                ECU testing and automation for automotive diagnostic services using Vector CANoe/CAPL. 
+                Built automation tools and GUIs for I/O control testing.
               </p>
             </article>
           </div>
@@ -245,62 +241,59 @@
         <div class="container">
           <div class="section-head">
             <h2>Projects</h2>
-            <p class="muted">A few highlights. We can tighten this and add links/screenshots later.</p>
+            <p class="muted">Selected technical work and research</p>
           </div>
 
           <div class="grid">
             <article class="card project">
               <div class="project-top">
-                <h3>Agent + Open-RMF Integration (WIP)</h3>
+                <h3>Agent + Open-RMF Integration</h3>
                 <span class="tag">Systems</span>
               </div>
               <p class="muted">
-                Event-driven agent that monitors task execution and emits intents/next actions; designed to sit alongside fleet orchestration.
+                Event-driven agent that monitors task execution and generates next actions. Designed to work alongside 
+                fleet orchestration systems for adaptive factory automation.
               </p>
               <div class="project-links">
-                <span class="tiny">Link:</span>
-                <span class="tiny muted">add GitHub repo later</span>
+                <span class="tiny muted">GitHub repo coming soon</span>
               </div>
             </article>
 
             <article class="card project">
               <div class="project-top">
-                <h3>ROS 2 Nav2 AMR Workspace (Docker)</h3>
+                <h3>ROS 2 Nav2 AMR Workspace</h3>
                 <span class="tag">Robotics</span>
               </div>
               <p class="muted">
-                Reproducible ROS 2 Jazzy + Nav2 dev environment using Docker Compose for navigation & simulation workflows.
+                Reproducible development environment for ROS 2 Jazzy + Nav2 using Docker Compose. Streamlines 
+                navigation and simulation workflows for autonomous mobile robots.
               </p>
             </article>
 
             <article class="card project">
               <div class="project-top">
-                <h3>Safe Contact Framework (7-DoF Arm)</h3>
+                <h3>Safe Contact Framework</h3>
                 <span class="tag">Control</span>
               </div>
               <p class="muted">
-                Combined contact-implicit trajectory optimization with admittance control to achieve safer contact behaviors.
+                Combined contact-implicit trajectory optimization with admittance control to enable safer contact 
+                behaviors for a 7-DoF manipulator. Focus on bridging planning and control.
               </p>
             </article>
 
             <article class="card project">
               <div class="project-top">
-                <h3>Drone Delivery Optimization (Paper)</h3>
-                <span class="tag">Optimization</span>
+                <h3>Drone Delivery Optimization</h3>
+                <span class="tag">Research</span>
               </div>
               <p class="muted">
-                Research on drone delivery routing/charging optimization. (We can link your arXiv here.)
+                Research paper on routing and charging optimization for drone delivery systems. Published work 
+                exploring scalable solutions for last-mile delivery.
               </p>
               <div class="project-links">
-                <a class="tiny" href="https://arxiv.org/abs/2311.17375" target="_blank" rel="noreferrer">arXiv</a>
+                <a class="tiny" href="https://arxiv.org/abs/2311.17375" target="_blank" rel="noreferrer">arXiv Paper</a>
               </div>
             </article>
-          </div>
-
-          <div class="note card">
-            <p class="muted">
-              Want more detail? I’m happy to share demos, writeups, and code links—this section will expand as I polish.
-            </p>
           </div>
         </div>
       </section>
@@ -310,43 +303,47 @@
         <div class="container">
           <div class="section-head">
             <h2>Connect</h2>
-            <p class="muted">Best ways to reach me. Calendly is optional (recommended for founder-style sites).</p>
+            <p class="muted">Let's talk about robotics, automation, or collaboration opportunities</p>
           </div>
 
-          <div class="two-col">
-            <div class="card">
-              <h3>Message me</h3>
-              <p class="muted">Email is fastest. LinkedIn is great for intros.</p>
+          <div class="connect-grid">
+            <div class="connect-primary">
+              <h3>Get in touch</h3>
+              <p class="muted">Email is the fastest way to reach me. I'm always open to discussing manufacturing robotics, 
+                research collaborations, or interesting problems in automation.</p>
 
               <div class="contact-list">
-                <a class="btn btn-secondary" href="mailto:saayuj@outlook.com">Email</a>
-                <a class="btn btn-secondary" href="https://www.linkedin.com/in/saayuj-deshpande" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a class="btn btn-secondary" href="https://github.com/saayuj" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="btn btn-primary" href="mailto:saayuj@outlook.com">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  Email Me
+                </a>
+                <a class="btn btn-secondary" href="https://www.linkedin.com/in/saayuj-deshpande" target="_blank" rel="noreferrer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  LinkedIn
+                </a>
+                <a class="btn btn-secondary" href="https://github.com/saayuj" target="_blank" rel="noreferrer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  GitHub
+                </a>
               </div>
 
               <div class="divider"></div>
 
               <p class="muted tiny">
-                Resume:
+                <strong>Resume:</strong> 
                 <a href="assets/resume.pdf" target="_blank" rel="noreferrer">Download PDF</a>
-                <span class="muted">(add later)</span>
               </p>
             </div>
 
-            <div class="card">
-              <h3>Schedule a chat (optional)</h3>
+            <div class="connect-calendar card">
+              <h3>Schedule a call</h3>
               <p class="muted">
-                If you’re reaching out about manufacturing robotics, collaboration, advising, or product conversations, a quick call can help.
-              </p>
-              <p class="muted tiny">
-                Add your Calendly link here when ready:
+                For deeper discussions about manufacturing robotics, technical collaborations, or advisory conversations, 
+                feel free to schedule a call.
               </p>
               <a class="btn btn-primary" href="https://calendly.com/saayujd/30min" target="_blank" rel="noreferrer">
                 Schedule via Calendly
               </a>
-              <p class="muted tiny" style="margin-top:10px;">
-                Tip: keep this button, but don’t make it the only contact method.
-              </p>
             </div>
           </div>
         </div>
@@ -355,7 +352,7 @@
       <footer class="footer">
         <div class="container footer-inner">
           <span class="muted tiny">© <span id="year"></span> Saayuj Deshpande</span>
-          <span class="muted tiny">Built on GitHub Pages</span>
+          <span class="muted tiny">Built with care · Hosted on GitHub Pages</span>
         </div>
       </footer>
     </main>
