@@ -6,13 +6,13 @@
     // Footer year
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   
-    // Theme: default to system unless user already chose
-    const stored = localStorage.getItem("theme"); // "light" | "dark" | "system"
-    if (stored) {
-      root.setAttribute("data-theme", stored);
-    } else {
-      root.setAttribute("data-theme", "system");
-    }
+  // Theme: default to light unless user already chose
+  const stored = localStorage.getItem("theme"); // "light" | "dark" | "system"
+  if (stored) {
+    root.setAttribute("data-theme", stored);
+  } else {
+    root.setAttribute("data-theme", "light");
+  }
   
     function nextTheme(current) {
       // Cycle: system -> dark -> light -> system
@@ -200,7 +200,7 @@
         const isDark = root.getAttribute('data-theme') === 'dark' || 
                       (root.getAttribute('data-theme') === 'system' && 
                        window.matchMedia('(prefers-color-scheme: dark)').matches);
-        const color = isDark ? '99, 102, 241' : '37, 99, 235';
+        const color = isDark ? '59, 130, 246' : '37, 99, 235';
         ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -223,7 +223,7 @@
       const isDark = root.getAttribute('data-theme') === 'dark' || 
                     (root.getAttribute('data-theme') === 'system' && 
                      window.matchMedia('(prefers-color-scheme: dark)').matches);
-      const color = isDark ? '99, 102, 241' : '37, 99, 235';
+      const color = isDark ? '59, 130, 246' : '37, 99, 235';
       
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
