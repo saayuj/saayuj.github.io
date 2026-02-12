@@ -6,9 +6,9 @@
     // Footer year
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   
-  // Theme: default to light unless user already chose
+  // Theme: default to dark unless user already chose
   const stored = localStorage.getItem("theme"); // "light" | "dark"
-  const initialTheme = stored === "dark" || stored === "light" ? stored : "light";
+  const initialTheme = stored === "dark" || stored === "light" ? stored : "dark";
   root.setAttribute("data-theme", initialTheme);
   
   function nextTheme(current) {
