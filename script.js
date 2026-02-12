@@ -74,42 +74,18 @@
     // Mark body as loaded
     document.body.classList.add('loaded');
     
-      // Animate header
-      const header = document.querySelector('.site-header');
-      if (header) {
-        header.style.opacity = '0';
-        header.style.transform = 'translateY(-20px)';
-        header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        setTimeout(() => {
-          header.style.opacity = '1';
-          header.style.transform = 'translateY(0)';
-        }, 100);
-      }
-  
-      // Animate hero section elements
-      const heroElements = document.querySelectorAll('.hero-left > *');
-      heroElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        setTimeout(() => {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
-      });
-  
-      // Animate hero right side
-      const heroRight = document.querySelector('.hero-right');
-      if (heroRight) {
-        heroRight.style.opacity = '0';
-        heroRight.style.transform = 'translateX(30px)';
-        heroRight.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        setTimeout(() => {
-          heroRight.style.opacity = '1';
-          heroRight.style.transform = 'translateX(0)';
-        }, 400);
-      }
-    });
+    // Animate header
+    const header = document.querySelector('.site-header');
+    if (header) {
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(-20px)';
+      header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      setTimeout(() => {
+        header.style.opacity = '1';
+        header.style.transform = 'translateY(0)';
+      }, 100);
+    }
+  });
   
     // ---------- Smooth Scroll with offset ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -155,10 +131,13 @@
         const scrolled = window.pageYOffset;
         
         // Parallax effect on hero section
-        const hero = document.querySelector('.hero');
+        const hero = document.querySelector('.hero-landing');
         if (hero && scrolled < window.innerHeight) {
-          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-          hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+          const heroContent = hero.querySelector('.hero-content');
+          if (heroContent) {
+            heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+            heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.6;
+          }
         }
         
         ticking = false;
@@ -174,5 +153,120 @@
       el.style.cursor = 'default';
     }
   });
-  })();
+
+  // ---------- Particle Effect ----------
+  const canvas = document.getElementById('particles-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+    
+    class Particle {
+      constructor() {
+        this.reset();
+        this.y = Math.random() * canvas.height;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+      
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+      
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      
+      draw() {
+        const isDark = root.getAttribute('data-theme') === 'dark' || 
+                      (root.getAttribute('data-theme') === 'system' && 
+                       window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const color = isDark ? '99, 102, 241' : '37, 99, 235';
+        ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    function initParticles() {
+      particles = [];
+      const isMobile = window.innerWidth < 900;
+      const density = isMobile ? 20000 : 15000;
+      const maxParticles = isMobile ? 40 : 80;
+      const numberOfParticles = Math.min(Math.floor((canvas.width * canvas.height) / density), maxParticles);
+      for (let i = 0; i < numberOfParticles; i++) {
+        particles.push(new Particle());
+      }
+    }
+    
+    function connectParticles() {
+      const isDark = root.getAttribute('data-theme') === 'dark' || 
+                    (root.getAttribute('data-theme') === 'system' && 
+                     window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const color = isDark ? '99, 102, 241' : '37, 99, 235';
+      
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 150) {
+            const opacity = (1 - distance / 150) * 0.15;
+            ctx.strokeStyle = `rgba(${color}, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      connectParticles();
+      animationId = requestAnimationFrame(animate);
+    }
+    
+    initParticles();
+    animate();
+    
+    // Pause animation when page is not visible
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId);
+      } else {
+        animate();
+      }
+    });
+  }
+})();
   
