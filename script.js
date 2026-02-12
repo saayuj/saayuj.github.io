@@ -2,8 +2,6 @@
     const root = document.documentElement;
     const themeBtn = document.getElementById("themeToggle");
     const yearEl = document.getElementById("year");
-    const menuBtn = document.getElementById("menuToggle");
-    const mobileNav = document.getElementById("mobileNav");
   
     // Footer year
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -39,27 +37,6 @@
       });
     }
   
-    // Mobile menu
-    if (menuBtn && mobileNav) {
-      menuBtn.addEventListener("click", () => {
-        const open = !mobileNav.hasAttribute("hidden");
-        if (open) {
-          mobileNav.setAttribute("hidden", "");
-          menuBtn.setAttribute("aria-expanded", "false");
-        } else {
-          mobileNav.removeAttribute("hidden");
-          menuBtn.setAttribute("aria-expanded", "true");
-        }
-      });
-  
-      // Close menu after clicking a link
-      mobileNav.addEventListener("click", (e) => {
-        const a = e.target.closest("a");
-        if (!a) return;
-        mobileNav.setAttribute("hidden", "");
-        menuBtn.setAttribute("aria-expanded", "false");
-      });
-    }
   
     // ---------- Scroll Reveal Animation ----------
     const observerOptions = {

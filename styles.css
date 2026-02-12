@@ -166,14 +166,6 @@
     }
   }
   
-  @keyframes pulse {
-    0%, 100% {
-      box-shadow: 0 0 0 0 var(--ring);
-    }
-    50% {
-      box-shadow: 0 0 0 8px transparent;
-    }
-  }
   
   /* Animation classes */
   .animate-fade-in {
@@ -291,60 +283,37 @@
   .header-inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
-    padding: 14px 0;
-    position: relative;
-  }
-  
-  .header-inner .brand {
-    position: absolute;
-    left: 0;
-  }
-  
-  .header-inner .header-actions {
-    position: absolute;
-    right: 0;
+    padding: 16px 0;
   }
   
   .brand {
     display: inline-flex;
     align-items: center;
-    pointer-events: none;
   }
   
-  .brand-dot {
-    width: 10px; 
-    height: 10px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--primary), var(--primary2));
-    box-shadow: 0 0 0 6px var(--pill);
-    animation: pulse 3s ease-in-out infinite;
+  .brand-text {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
   }
   
   .nav {
     display: flex;
-    gap: 18px;
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--card);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
-  }
-  
-  .nav:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    gap: 40px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 60px;
   }
   
   .nav a {
-    font-weight: 600;
-    font-size: 13.5px;
+    font-weight: 500;
+    font-size: 15px;
     color: var(--muted);
     text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 8px;
+    padding: 8px 0;
     transition: all 0.3s ease;
     position: relative;
   }
@@ -353,8 +322,8 @@
     content: '';
     position: absolute;
     bottom: 2px;
-    left: 10px;
-    right: 10px;
+    left: 0;
+    right: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     transform: scaleX(0);
@@ -364,7 +333,6 @@
   
   .nav a:hover { 
     color: var(--text);
-    background: rgba(99, 102, 241, 0.1);
   }
   
   .nav a:hover::after {
@@ -376,8 +344,6 @@
     gap: 10px;
     align-items: center;
   }
-  
-  .menu-toggle { display: none; }
   
   /* ---------- Buttons ---------- */
   .btn {
@@ -1122,64 +1088,31 @@
     .metrics { grid-template-columns: 1fr; }
     .two-col { grid-template-columns: 1fr; }
     .grid { grid-template-columns: 1fr; }
-  
+    
     .header-inner {
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
     
-    .header-inner .brand {
-      position: static;
+    .brand {
+      flex: 1;
     }
     
-    .header-inner .header-actions {
-      position: static;
-    }
-    
-    .nav { display: none; }
-    .menu-toggle { display: inline-flex; }
-    .hide-sm { display: none; }
-  
-    .mobile-nav {
+    .nav {
+      order: 3;
+      width: 100%;
+      margin: 0;
+      justify-content: space-around;
+      gap: 16px;
+      padding-top: 8px;
       border-top: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(12px);
-      transition: all 0.3s ease;
     }
     
-    .mobile-nav-inner {
-      padding: 12px 0;
-      display: grid;
-      gap: 10px;
+    .nav a {
+      font-size: 13px;
     }
     
-    .mobile-nav a {
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--card);
-      box-shadow: var(--shadow);
-      color: var(--muted);
-      font-weight: 700;
-      transition: all 0.3s ease;
-      transform-origin: center;
-    }
-    
-    .mobile-nav a:hover { 
-      color: var(--text); 
-      text-decoration: none;
-      transform: scale(1.02);
-      background: rgba(99, 102, 241, 0.1);
-      border-color: rgba(99, 102, 241, 0.3);
-    }
-    
-    /* Disable heavy animations on mobile for performance */
-    .pill {
-      animation: none;
-    }
-    
-    .brand-dot {
-      animation: none;
-    }
+    .hide-sm { display: none; }
     
     /* Hide timeline decorations on mobile */
     .timeline::before,
