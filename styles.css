@@ -1027,45 +1027,88 @@
   .note { margin-top: 12px; }
   
   /* ---------- Contact ---------- */
-  .connect-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-    align-items: start;
+  /* ---------- Connect Section ---------- */
+  .connect-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
   }
   
-  .connect-primary h3,
-  .connect-calendar h3 {
-    margin: 0 0 12px 0;
-    font-size: 20px;
-  }
-  
-  .connect-primary p,
-  .connect-calendar p {
-    margin-bottom: 20px;
-  }
-  
-  .contact-list {
+  .contact-buttons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin: 0 auto;
   }
   
-  .contact-list .btn {
-    flex: 1;
+  .contact-buttons .btn {
     min-width: 140px;
     justify-content: center;
   }
   
-  .contact-list .btn svg {
+  .contact-buttons .btn svg {
     flex-shrink: 0;
   }
   
-  .divider {
+  .connect-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 20px 0;
+    margin: 32px 0 24px 0;
+  }
+  
+  .connect-resume {
+    margin: 0 0 16px 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  
+  .connect-resume strong {
+    color: var(--text);
+  }
+  
+  .connect-resume a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .connect-resume a:hover {
+    text-decoration: underline;
+  }
+  
+  .connect-calendly {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .connect-calendly a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .connect-calendly a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--muted);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+  
+  .connect-calendly a:hover {
+    color: var(--primary);
+  }
+  
+  .connect-calendly a:hover::after {
+    background: var(--primary);
+    opacity: 1;
   }
   
   /* ---------- Footer ---------- */
@@ -1089,7 +1132,7 @@
   
   .footer-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
   }
@@ -1138,8 +1181,12 @@
       padding: 32px;
     }
     
-    .connect-grid {
-      grid-template-columns: 1fr;
+    .contact-buttons {
+      flex-direction: column;
+    }
+    
+    .contact-buttons .btn {
+      width: 100%;
     }
     
     .metrics { grid-template-columns: 1fr; }
