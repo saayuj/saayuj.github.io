@@ -7,28 +7,23 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   
   // Theme: default to light unless user already chose
-  const stored = localStorage.getItem("theme"); // "light" | "dark" | "system"
-  if (stored) {
-    root.setAttribute("data-theme", stored);
-  } else {
-    root.setAttribute("data-theme", "light");
+  const stored = localStorage.getItem("theme"); // "light" | "dark"
+  const initialTheme = stored === "dark" || stored === "light" ? stored : "light";
+  root.setAttribute("data-theme", initialTheme);
+  
+  function nextTheme(current) {
+    // Simple toggle: light <-> dark
+    return current === "dark" ? "light" : "dark";
   }
   
-    function nextTheme(current) {
-      // Cycle: system -> dark -> light -> system
-      if (current === "system") return "dark";
-      if (current === "dark") return "light";
-      return "system";
+  function setTheme(t) {
+    root.setAttribute("data-theme", t);
+    localStorage.setItem("theme", t);
+    if (themeBtn) {
+      const label = `Theme: ${t[0].toUpperCase()}${t.slice(1)}`;
+      themeBtn.setAttribute("aria-label", label);
     }
-  
-    function setTheme(t) {
-      root.setAttribute("data-theme", t);
-      localStorage.setItem("theme", t);
-      if (themeBtn) {
-        const label = t === "system" ? "Theme: System" : `Theme: ${t[0].toUpperCase()}${t.slice(1)}`;
-        themeBtn.setAttribute("aria-label", label);
-      }
-    }
+  }
   
     if (themeBtn) {
       themeBtn.addEventListener("click", () => {
@@ -197,9 +192,7 @@
       }
       
       draw() {
-        const isDark = root.getAttribute('data-theme') === 'dark' || 
-                      (root.getAttribute('data-theme') === 'system' && 
-                       window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const isDark = root.getAttribute('data-theme') === 'dark';
         const color = isDark ? '59, 130, 246' : '37, 99, 235';
         ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
         ctx.beginPath();
@@ -220,9 +213,7 @@
     }
     
     function connectParticles() {
-      const isDark = root.getAttribute('data-theme') === 'dark' || 
-                    (root.getAttribute('data-theme') === 'system' && 
-                     window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const isDark = root.getAttribute('data-theme') === 'dark';
       const color = isDark ? '59, 130, 246' : '37, 99, 235';
       
       for (let i = 0; i < particles.length; i++) {
