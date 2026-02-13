@@ -236,17 +236,17 @@
     top: 0;
     z-index: 50;
     backdrop-filter: blur(12px);
-    background: rgba(10, 14, 26, 0.4);
+    background: transparent;
     transition: all 0.3s ease;
   }
   
   .site-header.scrolled {
-    background: rgba(10, 14, 26, 0.9);
+    background: rgba(10, 14, 26, 0.95);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
   
   html[data-theme="light"] .site-header {
-    background: rgba(247, 251, 255, 0.4);
+    background: transparent;
   }
   
   html[data-theme="light"] .site-header.scrolled {
@@ -1028,6 +1028,16 @@
   
   /* ---------- Contact ---------- */
   /* ---------- Contact Section ---------- */
+  #connect {
+    background: rgba(7, 10, 18, 0.6);
+    margin-top: 60px;
+    padding: 100px 0 80px 0;
+  }
+  
+  html[data-theme="light"] #connect {
+    background: rgba(248, 250, 252, 1);
+  }
+  
   .contact-content {
     max-width: 500px;
     margin: 0 auto;
@@ -1117,9 +1127,15 @@
   /* ---------- Footer ---------- */
   .footer {
     padding: 26px 0 40px 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
     position: relative;
-    margin-top: 60px;
+    margin-top: 0;
+    background: rgba(7, 10, 18, 0.6);
+  }
+  
+  html[data-theme="light"] .footer {
+    background: rgba(248, 250, 252, 1);
+    border-top-color: rgba(15, 23, 42, 0.08);
   }
   
   .footer::before {
