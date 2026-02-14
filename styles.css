@@ -1000,14 +1000,6 @@
     object-position: center;
     display: block;
   }
-
-  /* Rotate Franka Panda image */
-  .project-image img[src*="franka_pick"] {
-    transform: rotate(-90deg);
-    width: 140%;
-    height: 140%;
-    max-width: none;
-  }
   
   .image-placeholder {
     width: 100%;
