@@ -726,7 +726,8 @@
 
   .about-photo img {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    height: 100%;
+    min-height: 400px;
     border-radius: var(--radius);
     object-fit: cover;
     object-position: center;
