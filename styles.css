@@ -447,7 +447,7 @@
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 40px;
+    width: 120px;
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
     border-radius: 2px;
