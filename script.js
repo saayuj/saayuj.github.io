@@ -32,38 +32,6 @@
       });
     }
   
-  
-    // ---------- Scroll Reveal Animation ----------
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, observerOptions);
-  
-    // Observe all sections and cards for scroll animations
-    const sections = document.querySelectorAll('.section');
-    sections.forEach((section, index) => {
-      // Add delay based on order
-      section.style.transitionDelay = `${index * 0.1}s`;
-      section.classList.add('scroll-reveal');
-      observer.observe(section);
-    });
-  
-    // Observe cards within sections
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, index) => {
-      card.style.transitionDelay = `${(index % 4) * 0.1}s`;
-      card.classList.add('scroll-reveal');
-      observer.observe(card);
-    });
-  
   // ---------- Initial Page Load Animation ----------
   window.addEventListener('load', () => {
     // Mark body as loaded
@@ -81,7 +49,7 @@
       }, 100);
     }
   });
-  
+
     // ---------- Smooth Scroll with offset ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
