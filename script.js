@@ -117,6 +117,49 @@
     }
   });
 
+  // ---------- Active Nav Link (scroll-spy) ----------
+  const navLinks = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+  const navSections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  function setActiveNav(id) {
+    navLinks.forEach(link => {
+      const active = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  let navLock = false;
+
+  function updateActiveNav() {
+    if (navLock) return;
+    const atBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      setActiveNav(navSections[navSections.length - 1].id);
+      return;
+    }
+    const line = window.pageYOffset + header.offsetHeight + 80;
+    let current = navSections[0];
+    navSections.forEach(sec => {
+      if (sec.offsetTop <= line) current = sec;
+    });
+    setActiveNav(current.id);
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    setActiveNav(link.getAttribute('href').slice(1));
+    // Hold the clicked state while the smooth scroll runs
+    navLock = true;
+    clearTimeout(navLock.timer);
+    setTimeout(() => { navLock = false; updateActiveNav(); }, 900);
+  }));
+  updateActiveNav();
+
   // ---------- Particle Effect ----------
   const canvas = document.getElementById('particles-canvas');
   if (canvas) {
