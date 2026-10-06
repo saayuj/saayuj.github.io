@@ -133,6 +133,7 @@
   }
 
   let navLock = false;
+  let navLockTimer;
 
   function updateActiveNav() {
     if (navLock) return;
@@ -155,8 +156,8 @@
     setActiveNav(link.getAttribute('href').slice(1));
     // Hold the clicked state while the smooth scroll runs
     navLock = true;
-    clearTimeout(navLock.timer);
-    setTimeout(() => { navLock = false; updateActiveNav(); }, 900);
+    clearTimeout(navLockTimer);
+    navLockTimer = setTimeout(() => { navLock = false; updateActiveNav(); }, 900);
   }));
   updateActiveNav();
 
